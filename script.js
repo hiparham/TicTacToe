@@ -102,7 +102,7 @@ const displayGame = (() => {
       const player = switchPlayer()
       const p_1 = pl_1_txt.textContent.split(" ")[0]
       const p_2 = pl_2_txt.textContent.split(" ")[0]
-      e.target.innerHTML = `<p class="flex justify-center items-center h-full">${player}</p>`
+      e.target.innerHTML = `<p class="flex justify-center items-center h-full w-full">${player}</p>`
       markSpot(+id, player)
       w = checkWinner()
       w ? resetBtn.classList.remove("hidden") : ""
