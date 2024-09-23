@@ -89,21 +89,23 @@ const displayGame = (() => {
     w = ""
     submitPlayers.classList.remove("hidden")
     winText.textContent = ""
-    mainSquare
-      .querySelectorAll(".aspect-square")
-      .forEach((x) => (x.innerHTML = ""))
+    mainSquare.querySelectorAll("aspect-square").forEach((x) => {
+      x.textContent = ""
+    })
     resetGame()
     resetBtn.classList.add("hidden")
   }
   //
   mainSquare.addEventListener("click", (e) => {
     const id = e.target.dataset.id
-    if (!w && id && !e.target.innerHTML) {
+
+    if (!w && id && !e.target.textContent) {
       const player = switchPlayer()
       const p_1 = pl_1_txt.textContent.split(" ")[0]
       const p_2 = pl_2_txt.textContent.split(" ")[0]
-      e.target.innerHTML = `<p class="flex justify-center items-center h-full w-full">${player}</p>`
+      e.target.textContent = player
       markSpot(+id, player)
+
       w = checkWinner()
       w ? resetBtn.classList.remove("hidden") : ""
       w ? (pl_1_txt.textContent = "") : ""
